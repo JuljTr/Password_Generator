@@ -4,4 +4,22 @@ const characters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", 
 let passBtn = document.querySelector("#btn");
 let elementOne = document.querySelector("#text-code-one");
 let elementTwo = document.querySelector("#text-code-two");
+let password = "";
 
+function generateRandomNum() {
+    return Math.floor(Math.random() * characters.length);
+}
+
+function generatePass() {
+    password = ""
+    for (i = 0; i <= 15; i++) {
+        password += characters[generateRandomNum()];
+    }
+    return password
+}
+
+
+passBtn.addEventListener("click", () => {
+elementOne.textContent = generatePass()
+elementTwo.textContent = generatePass()
+});
